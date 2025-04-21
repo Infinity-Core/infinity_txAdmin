@@ -50,9 +50,9 @@ tasks:
     path: ./tmp/files/oxmysql.zip
     url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
   - action: unzip
-    dest: ./resources/[core-dependances]/oxmysql
+    dest: ./resources/[core-dependances]
     src: ./tmp/files/oxmysql.zip
-    
+
 # Download pma-voice
   - action: download_github
     src: https://github.com/AvarianKnight/pma-voice
