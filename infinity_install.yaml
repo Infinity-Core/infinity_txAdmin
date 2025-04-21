@@ -1,0 +1,86 @@
+$engine: 3
+$onesync: on
+$steamRequired: true
+name: InfinityCore
+author: InfinityCore
+description: InfinityCore Official txAdmin recipe! This will set up a base InfinityCore official server.
+
+variables:
+    steam_webApiKey: "none"
+
+tasks:
+
+# Recipe Specific server.cfg files
+  - action: download_github
+    src: https://github.com/Infinity-Core/infinity_txAdmin
+    ref: main
+    dest: ./temp/infinity_txAdminRecipe
+  
+  - action: move_path
+    src: ./temp/infinity_txAdminRecipe/server.cfg
+    dest: ./server.cfg
+  
+# Run Database SQL
+  - action: connect_database
+  - action: query_database
+    file: ./temp/infinity_txAdminRecipe/framework_infinity.sql
+    
+# Move the logo to the root
+  - action: move_path
+    src: ./temp/infinity_txAdminRecipe/logo.png
+    dest: ./logo.png
+
+# Download default CFX resources
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    ref: master
+    subpath: resources
+    dest: ./resources/
+
+# Download infinity core
+  - action: download_github
+    src: https://github.com/Infinity-Core/infinity_core
+    ref: main
+    dest: ./temp/[core]/infinity_core
+
+# Download infinity skin
+  - action: download_github
+    src: https://github.com/Infinity-Core/infinity_skin
+    ref: main
+    dest: ./temp/[core]/infinity_skin
+
+# Download infinity chars
+  - action: download_github
+    src: https://github.com/Infinity-Core/infinity_chars
+    ref: main
+    dest: ./temp/[core]/infinity_chars
+
+# Download infinity needs
+  - action: download_github
+    src: https://github.com/Infinity-Core/infinity_needs
+    ref: main
+    dest: ./temp/[core]/infinity_needs
+
+# Download infinity identity
+  - action: download_github
+    src: https://github.com/Infinity-Core/infinity_identity
+    ref: main
+    dest: ./temp/[core]/infinity_identity
+
+# Download infinity clothes
+  - action: download_github
+    src: https://github.com/Infinity-Core/infinity_clothes
+    ref: main
+    dest: ./temp/[core]/infinity_clothes
+
+# Download infinity respawn
+  - action: download_github
+    src: https://github.com/Infinity-Core/infinity_respawn
+    ref: main
+    dest: ./temp/[core]/infinity_respawn
+
+# Download infinity devmode
+  - action: download_github
+    src: https://github.com/Infinity-Core/infinity_devmode
+    ref: main
+    dest: ./temp/[core]/infinity_devmode
