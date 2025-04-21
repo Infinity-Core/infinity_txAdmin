@@ -46,15 +46,15 @@ tasks:
     dest: ./resources/
     
 # Download oxmysql
-- action: download_file
-  path: ./tmp/files/oxmysql.zip
-  url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
-- action: unzip
-  dest: ./tmp/files/oxmysql_unzip
-  src: ./tmp/files/oxmysql.zip
-- action: move_path
-  src: ./tmp/files/oxmysql_unzip/oxmysql
-  dest: ./resources/[core-dependances]/oxmysql
+  - action: download_file
+    path: ./tmp/files/oxmysql.zip
+    url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
+  - action: unzip
+    dest: ./tmp/files/oxmysql_unzip
+    src: ./tmp/files/oxmysql.zip
+  - action: move_path
+    src: ./tmp/files/oxmysql_unzip/oxmysql
+    dest: ./resources/[core-dependances]/oxmysql
 
 # Download pma-voice
   - action: download_github
