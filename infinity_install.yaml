@@ -37,6 +37,13 @@ tasks:
     subpath: resources
     dest: ./resources/
 
+# Download oxmysql
+  - action: download_github
+    src: https://github.com/overextended/oxmysql
+    ref: main
+    subpath: resources
+    dest: ./resources/[core-dependances]/oxmysql
+
 # Download infinity core
   - action: download_github
     src: https://github.com/Infinity-Core/infinity_core
