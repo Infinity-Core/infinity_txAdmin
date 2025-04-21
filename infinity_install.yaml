@@ -19,16 +19,24 @@ tasks:
   - action: move_path
     src: ./temp/infinity_txAdminRecipe/server.cfg
     dest: ./server.cfg
-  
-# Run Database SQL
-  - action: connect_database
-  - action: query_database
-    file: ./temp/infinity_txAdminRecipe/framework_infinity.sql
-    
-# Move the logo to the root
+
+  - action: move_path
+    src: ./temp/infinity_txAdminRecipe/framework_infinity.sql
+    dest: ./framework_infinity.sql
+
+  - action: move_path
+    src: ./temp/infinity_txAdminRecipe/banner.jpg
+    dest: ./banner.jpg
+
+    # Move the logo to the root
   - action: move_path
     src: ./temp/infinity_txAdminRecipe/logo.png
     dest: ./logo.png
+  
+  # Run Database SQL
+  - action: connect_database
+  - action: query_database
+    file: ./framework_infinity.sql
 
 # Download default CFX resources
   - action: download_github
@@ -36,13 +44,20 @@ tasks:
     ref: master
     subpath: resources
     dest: ./resources/
-
+    
 # Download oxmysql
-  - action: download_github
-    src: https://github.com/overextended/oxmysql
-    ref: main
-    subpath: resources
+  - action: download_file
+    path: ./tmp/files/oxmysql.zip
+    url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
+  - action: unzip
     dest: ./resources/[core-dependances]/oxmysql
+    src: ./tmp/files/oxmysql.zip
+    
+# Download pma-voice
+  - action: download_github
+    src: https://github.com/AvarianKnight/pma-voice
+    ref: main
+    dest: ./resources/[framework_core]/[add-ons]/pma-voice
 
 # Download infinity core
   - action: download_github
@@ -91,3 +106,10 @@ tasks:
     src: https://github.com/Infinity-Core/infinity_devmode
     ref: main
     dest: ./resources/[framework_core]/[core]/infinity_devmode
+
+
+# Clean up temporary files
+  - action: remove_path
+    path: ./temp
+  - action: remove_path
+    path: ./tmp
