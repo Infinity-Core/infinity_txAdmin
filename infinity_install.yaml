@@ -103,12 +103,28 @@ tasks:
     src: https://github.com/Infinity-Core/infinity_respawn
     ref: main
     dest: ./resources/[framework_core]/[core]/infinity_respawn
+# Download infinity jobs
+  - action: download_github
+    src: https://github.com/Infinity-Core/infinity_jobs
+    ref: main
+    dest: ./resources/[framework_core]/[core]/infinity_jobs
+# Download infinity stores
+  - action: download_github
+    src: https://github.com/Infinity-Core/infinity_stores
+    ref: main
+    dest: ./resources/[framework_core]/[core]/infinity_stores
 
 # Download infinity devmode
   - action: download_github
     src: https://github.com/Infinity-Core/infinity_devmode
     ref: main
     dest: ./resources/[framework_core]/[core]/infinity_devmode
+    
+# Download chat-theme-infinity
+  - action: download_github
+    src: https://github.com/Infinity-Core/chat-theme-infinity
+    ref: main
+    dest: ./resources/[framework_core]/[core]/chat-theme-infinity
 
 
 # Clean up temporary files
