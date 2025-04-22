@@ -52,6 +52,17 @@ CREATE TABLE `skins_players` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Index pour la table `players`
+--
+ALTER TABLE `players`
+  ADD PRIMARY KEY (`id`);
+--
+-- Index pour la table `skins_players`
+--
+ALTER TABLE `skins_players`
+  ADD PRIMARY KEY (`id`);
+
 -- Auto-incrément
 ALTER TABLE `players`
   MODIFY `id` INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
